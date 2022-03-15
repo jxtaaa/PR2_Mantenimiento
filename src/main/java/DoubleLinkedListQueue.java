@@ -15,8 +15,6 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
     }
 
-    //D ~ A - B - C
-
     @Override
     public void appendLeft(DequeNode<T> node) {
         if(first == null && last == null){ //empty
@@ -66,11 +64,17 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
     @Override
     public DequeNode<T> peekFirst() {
+        if( size() == 0){
+            throw new RuntimeException("Empty list.");
+        }
         return first;
     }
 
     @Override
     public DequeNode<T> peekLast() {
+        if( size() == 0){
+            throw new RuntimeException("Empty list.");
+        }
         return last;
     }
 
@@ -83,16 +87,5 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
             current = current.getNext();
         }
         return size;
-    }
-
-    public void showList(){
-        var current = first;
-        if(current != null){
-            while(current != null){
-                System.out.print(current.getItem() + " ");
-                current = current.getNext();
-            }
-        }
-        System.out.println();
     }
 }

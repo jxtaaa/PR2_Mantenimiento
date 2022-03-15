@@ -32,3 +32,25 @@ getNext() para (0, null, null) devuelve null
 
 getPrevious() para (2,2,null) devuelve null
 getPrevious() para (2,null,3) devuelve 3
+
+DOUBLE LINKED LIST QUEUE
+Suponiendo que  - nodo = new Node(1,null,null)
+                - lista = new DoubleLinkedListQueue<>() (lista vacía)
+
+
+append(nodo) en lista, lista.first será nodo
+append(nodo) en lista, lista.last será nodo
+append(nodo) , append(nodo1) en lista ,lista.first será nodo1
+append(nodo), append(nodo1) en lista, lista.last será nodo
+appendLeft(nodo) en lista, lista.first será nodo
+appendLeft(nodo) en lista, lista.last será nodo
+appendLeft(nodo), appendLeft(nodo1) en lista, lista.first será nodo
+appendLeft(nodo), appendLeft(nodo1) en lista, lista.last será nodo1
+lista.deleteFirst() elevará una RuntimeException
+lista.deleteLast() elevará una RuntimeException
+append(nodo) en lista, lista.deleteFirst() dejará la lista vacía, first = null y last = null
+lista.peekFirst() elevará una RuntimeException
+lista.peekLast() elevará una RuntimeException
+lista.append(nodo) en lista, lista.peekFirst() será lista.first
+lista.append(nodo) en lista, lista.peekLast() será lista.last
+

@@ -60,7 +60,7 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void AppendLeftOnNotEmptyListShouldReturnFirst(){
+    public void AppendLeftOnNotEmptyListShouldReturnFirstAppended(){
         var node = new DequeNode<>(2,null,null);
         var node1 = new DequeNode<>(3,null,null);
         list.appendLeft(node);
@@ -69,7 +69,7 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void AppendLeftOnNotEmptyListShouldReturnLast(){
+    public void AppendLeftOnNotEmptyListShouldReturnLastAppended(){
         var node = new DequeNode<>(2,null,null);
         var node1 = new DequeNode<>(3,null,null);
         list.appendLeft(node);
@@ -100,17 +100,17 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void deleteFirstOnEmptyListShouldThrowException(){
+    public void DeleteFirstOnEmptyListShouldThrowRuntimeException(){
         assertThrows(RuntimeException.class, () -> list.deleteFirst());
     }
 
     @Test
-    public void deleteLastOnEmptyListShouldThrowException(){
+    public void DeleteLastOnEmptyListShouldThrowRuntimeException(){
         assertThrows(RuntimeException.class, () -> list.deleteLast());
     }
 
     @Test
-    public void deleteFirstOnNotEmptyListShouldHaveFirstNull(){
+    public void DeleteFirstOnNotEmptyListShouldHaveFirstNull(){
         var node = new DequeNode<>(2,null,null);
         list.append(node);
         list.deleteFirst();
@@ -118,7 +118,7 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void deleteFirstOnNotEmptyListShouldHaveLastNull(){
+    public void DeleteFirstOnNotEmptyListShouldHaveLastNull(){
         var node = new DequeNode<>(2,null,null);
         list.append(node);
         list.deleteLast();
@@ -126,7 +126,7 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void deleteFirstOnNotEmptyListShouldHaveFirstDistinct(){
+    public void DeleteFirstOnNotEmptyListShouldHaveFirstDistinct(){
         var node = new DequeNode<>(2,null,null);
         var node1 = new DequeNode<>(3,null,null);
         var node2 = new DequeNode<>(4,null,null);
@@ -138,7 +138,7 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void deleteLastOnNotEmptyListShouldHaveFirstDistinct(){
+    public void DeleteLastOnNotEmptyListShouldHaveFirstDistinct(){
         var node = new DequeNode<>(2,null,null);
         var node1 = new DequeNode<>(3,null,null);
         var node2 = new DequeNode<>(4,null,null);
@@ -150,39 +150,27 @@ class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void firstOnEmptyListShouldThrowRuntimeException(){
+    public void FirstOnEmptyListShouldThrowRuntimeException(){
         assertThrows(RuntimeException.class, () -> list.peekFirst());
     }
 
     @Test
-    public void lastOnEmptyListShouldThrowRuntimeException(){
+    public void LastOnEmptyListShouldThrowRuntimeException(){
         assertThrows(RuntimeException.class, () -> list.peekLast());
     }
 
     @Test
-    public void firstOnNotEmptyShouldReturnFirstElement(){
+    public void FirstOnNotEmptyShouldReturnFirstElement(){
         var node = new DequeNode<>(2,null,null);
         list.append(node);
         assertEquals(list.peekFirst(), node);
     }
 
     @Test
-    public void lastOnNotEmptyShouldReturnFirstElement(){
+    public void LastOnNotEmptyShouldReturnFirstElement(){
         var node = new DequeNode<>(2,null,null);
         list.append(node);
         assertEquals(list.peekLast(), node);
-    }
-
-    @Test
-    public void showEmptyListShowsEmptyList(){
-        list.showList();
-    }
-
-    @Test
-    public void showListShowsList(){
-        var node = new DequeNode<>(2,null,null);
-        list.append(node);
-        list.showList();
     }
 
     
