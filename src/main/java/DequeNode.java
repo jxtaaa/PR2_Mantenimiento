@@ -1,3 +1,5 @@
+import jdk.jshell.spi.SPIResolutionException;
+
 /**
  * Class representing a node of a double-ended queue (deque). Each node has pointers to the next and
  * previous nodes. The previous and next of the first and last node of the deque is null.
@@ -37,9 +39,13 @@ public class DequeNode<T> {
     }
 
     public DequeNode(T item, DequeNode<T> next, DequeNode<T> previous) {
-        this.item = item;
-        this.next = next;
+        this.item = item ;
+        this.next = next ;
         this.previous = previous;
+
+        if(previous != null){
+            previous.next = this;
+        }
     }
 
     public boolean isFirstNode() {
