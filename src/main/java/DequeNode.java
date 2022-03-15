@@ -22,7 +22,7 @@ public class DequeNode<T> {
         return previous;
     }
 
-    public DequeNode(T item, T next, T previous) {
+    public DequeNode() {
         this.item = item ;
         this.next = next ;
         this.previous = previous ;
