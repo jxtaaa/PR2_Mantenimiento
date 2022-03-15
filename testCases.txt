@@ -1,0 +1,9 @@
+isFirstNode() para (2, 8, null) es verdadero
+isFirstNode() para (2, 8, 2) es falso
+isFirstNode() para (2, null, null) es verdadero
+isFirstNode() para (2, null, 2) es falso
+
+
+getItem() para (null,null,null) devuelve null
+getItem() para (2,null,null) devuelve 2
+
