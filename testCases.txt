@@ -1,9 +1,33 @@
+setItem(3) establece a 3 item
+setItem(null) establece a null item
+
+setPrevious(Node(2,null,null)) establece el anterior a Node(2,null,null)
+setPrevious(null) establece el anterior a null
+
+setNext(Node(2,null,null)) establece el siguiente a Node(2,null,null)
+setNext(null) establece el siguiente a null
+
+isNotATerminalNode() para (2,2,2) es verdadero
+isNotATerminalNode() para (2,null,2) es falso
+isNotATerminalNode() para (2,2,null) es falso
+isNotATerminalNode() para (2,null,null) es falso
+
 isFirstNode() para (2, 8, null) es verdadero
 isFirstNode() para (2, 8, 2) es falso
 isFirstNode() para (2, null, null) es verdadero
 isFirstNode() para (2, null, 2) es falso
 
+isLastNode() para (2,null,null) es verdadero
+isLastNode() para (2,3,null) es falso
+isLastNode() para (2,3,4) es falso
+isLastNode() para (2,null,4) es verdadero
 
 getItem() para (null,null,null) devuelve null
 getItem() para (2,null,null) devuelve 2
 
+getNext() para (1, 2, 3) devuelve nodo2
+getNext() para (1, 23, null) devuelve nodo23
+getNext() para (0, null, null) devuelve null
+
+getPrevious() para (2,2,null) devuelve null
+getPrevious() para (2,null,3) devuelve 3
