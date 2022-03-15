@@ -9,6 +9,21 @@ class DequeNodeTest {
     // 2 --> 3
     /*
     Siendo (item, next, previous)
+
+        setItem(3) establece a 3 item
+        setItem(null) establece a null item
+
+        setPrevious(Node(2,null,null)) establece el anterior a Node(2,null,null)
+        setPrevious(null) establece el anterior a null
+
+        setNext(Node(2,null,null)) establece el siguiente a Node(2,null,null)
+        setNext(null) establece el siguiente a null
+
+        isNotATerminalNode() para (2,2,2) es verdadero
+        isNotATerminalNode() para (2,null,2) es falso
+        isNotATerminalNode() para (2,2,null) es falso
+        isNotATerminalNode() para (2,null,null) es falso
+
         isFirstNode() para (2, 8, null) es verdadero
         isFirstNode() para (2, 8, 2) es falso
         isFirstNode() para (2, null, null) es verdadero
@@ -36,6 +51,65 @@ class DequeNodeTest {
     @AfterEach
     public void finish(){ node = null; }
 
+    @Test
+    public void setItem3(){
+        node.setItem(3);
+        assertEquals(3, node.getItem());
+    }
+    @Test
+    public void setItemnull(){
+        node.setItem(null);
+        assertNull(node.getItem());
+    }
+    @Test
+    public void setNextNode1(){
+        DequeNode<Integer> node1 = new DequeNode<Integer>(2, null, null);
+        node.setNext(node1);
+
+        assertEquals(node1, node.getNext());
+    }
+    @Test
+    public void setNextNull(){
+       node.setNext(null);
+
+        assertNull(node.getNext());
+    }
+    @Test
+    public void setPreviousNode1(){
+        DequeNode<Integer> node1 = new DequeNode<Integer>(2, null, null);
+        node.setPrevious(node1);
+
+        assertEquals(node1, node.getPrevious());
+    }
+    @Test
+    public void setPreviousNull(){
+        node.setPrevious(null);
+
+        assertNull(node.getPrevious());
+    }
+    @Test
+    public void isNotATerminalNodeNode2_2_2ReturnTrue(){
+        DequeNode<Integer> node1 = new DequeNode<Integer>(2, null, node);
+        DequeNode<Integer> node2 = new DequeNode<Integer>(2, null, node1);
+        assertTrue(node1.isNotATerminalNode());
+    }
+    @Test
+    public void isNotATerminalNodeNode2_null_2ReturnTrue(){
+        DequeNode<Integer> node1 = new DequeNode<Integer>(2, null, node);
+
+        assertFalse(node1.isNotATerminalNode());
+    }
+    @Test
+    public void isNotATerminalNodeNode2_2_nullReturnTrue(){
+        DequeNode<Integer> node1 = new DequeNode<Integer>(2, null, node);
+
+        assertFalse(node.isNotATerminalNode());
+    }
+    @Test
+    public void isNotATerminalNodeNode2_null_nullReturnTrue(){
+
+        assertFalse(node.isNotATerminalNode());
+    }
     @Test
     public void isFirstNode2_8_nullReturnTrue(){
         new DequeNode<Integer>(8, null, node);
