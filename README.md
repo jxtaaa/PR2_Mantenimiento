@@ -1,3 +1,4 @@
+# Cobertura de código DequeNode
 ![](coverageDeque.png)
 
 # Tests de código DequeNode
@@ -8,8 +9,6 @@
 
 # Tests de código DoubleLinkedListQueue
 ![](testsList.png)
->>>>>>> Stashed changes
-
 
 # Fichero testCases
 ```plaintext
