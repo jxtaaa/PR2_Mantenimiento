@@ -14,6 +14,21 @@ class DoubleLinkedListQueueTest {
     public void finish(){ list = null; }
 
     @Test
+    public void DeleteOnEmptyListDoNothing(){
+        list.delete(new DequeNode<>(5,null, null));
+        assertEquals(list.size(), 0);
+    }
+    @Test
+    public void DeleteFirstNodeListChangeFirst(){
+        var node = new DequeNode<>(2,null,null);
+        list.append(node);
+        // 2 --> null
+        list.delete(node);
+
+        assertNull(list.first);
+        assertNull(list.last);
+    }
+    @Test
     public void AppendOnEmptyListShoudReturnFirst(){
         var node = new DequeNode<>(2,null,null);
         list.append(node);

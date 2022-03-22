@@ -119,13 +119,66 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         return null;
     }
 
+    // 1 --> 2 --> 3 --> 4 --> 5
     @Override
     public void delete(DequeNode<T> node) {
+        DequeNode<T> actual = first;
+
+        while(actual != null && !actual.equals(node)){
+            actual = first.getNext();
+        }
+        if(actual!=null){
+            DequeNode<T> anterior = actual.getPrevious();
+            DequeNode<T> siguiente = actual.getNext();
+
+            if(!actual.isFirstNode()){
+                anterior.setNext(siguiente);
+            }else{
+                this.first=siguiente;
+            }
+            if(!actual.isLastNode()) {
+                siguiente.setPrevious(anterior);
+            }else{
+                this.last=anterior;
+            }
+        }
 
     }
 
     @Override
-    public void sort(Comparator<?> comparator) {
+    public void sort(Comparator<T> comparator) {
+        int i = 0;
+        int j = 0;
+        DequeNode<T> currentNode = this.first;
+        DequeNode<T> previous = currentNode;
+        DequeNode<T> next =  currentNode;
+        DequeNode<T> temp = currentNode;
+        int comparationValue=0;
 
+        for(i=0; i<this.size(); i++)
+        {
+            for(j=0; j<this.size()-1; i++)
+            {
+                comparationValue = comparator.compare(currentNode.getItem(), currentNode.getNext().getItem());
+                if(comparationValue>0)
+                {
+                    next = currentNode.getNext();
+
+                    temp = currentNode;
+                    currentNode.setNext(next.getNext());
+                    currentNode.setPrevious(next);
+                    next.setPrevious(temp.getPrevious());
+                    next.setNext(currentNode);
+
+                    if(currentNode.isFirstNode()){
+                        this.first = next;
+                    }else if(next.isLastNode()) {
+                        this.last = currentNode;
+                    }
+
+                }
+                currentNode = currentNode.getNext();
+            }
+        }
     }
 }
