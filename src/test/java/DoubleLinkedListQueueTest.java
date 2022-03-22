@@ -14,6 +14,59 @@ class DoubleLinkedListQueueTest {
     public void finish(){ list = null; }
 
     @Test
+    public void SortList231ByNumberOrderReturn123(){
+        var node = new DequeNode<>(1,null,null);
+        var node1 = new DequeNode<>(3,null,null);
+        var node2 = new DequeNode<>(2,null,null);
+        list.append(node);
+        list.append(node1);
+        list.append(node2);
+
+        list.sort(Integer::compareTo);
+
+        assertEquals(1, list.first.getItem());
+        assertEquals(2, list.first.getNext().getItem());
+        assertEquals(3, list.last.getItem());
+    }
+
+
+    @Test
+    public void Delete2OnList13452DeleteNode2(){
+        var node = new DequeNode<>(2,null,null);
+        var node1 = new DequeNode<>(5,null,null);
+        var node2 = new DequeNode<>(4,null,null);
+        var node3 = new DequeNode<>(3,null,null);
+        var node4 = new DequeNode<>(1,null,null);
+
+        list.append(node);
+        list.append(node1);
+        list.append(node2);
+        list.append(node3);
+        list.append(node4);
+
+        list.delete(node);
+
+        assertNull(list.find(2));
+    }
+    @Test
+    public void Delete4OnList13452DeleteNode2(){
+        var node = new DequeNode<>(2,null,null);
+        var node1 = new DequeNode<>(5,null,null);
+        var node2 = new DequeNode<>(4,null,null);
+        var node3 = new DequeNode<>(3,null,null);
+        var node4 = new DequeNode<>(1,null,null);
+
+        list.append(node);
+        list.append(node1);
+        list.append(node2);
+        list.append(node3);
+        list.append(node4);
+
+        list.delete(node2);
+
+        assertNull(list.find(4));
+    }
+    @Test
     public void DeleteOnEmptyListDoNothing(){
         list.delete(new DequeNode<>(5,null, null));
         assertEquals(list.size(), 0);

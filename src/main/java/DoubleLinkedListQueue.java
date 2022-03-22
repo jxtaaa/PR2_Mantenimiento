@@ -125,7 +125,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         DequeNode<T> actual = first;
 
         while(actual != null && !actual.equals(node)){
-            actual = first.getNext();
+            actual = actual.getNext();
         }
         if(actual!=null){
             DequeNode<T> anterior = actual.getPrevious();
@@ -146,25 +146,56 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
     }
 
     @Override
+    public void sort(Comparator<T> comparator)
+    {
+        int swapped, i;
+        int comparationValue;
+        DequeNode<T> ptr1;
+        DequeNode<T> lptr = null;
+        DequeNode<T> start = first;
+        // Checking for empty list
+        if (start != null) {
+
+            do {
+                swapped = 0;
+                ptr1 = start;
+
+                while (ptr1.getNext() != lptr) {
+                    comparationValue = comparator.compare(ptr1.getItem(), ptr1.getNext().getItem());
+
+                    if (comparationValue > 0) {
+                        T t = ptr1.getItem();
+                        ptr1.setItem(ptr1.getNext().getItem());
+                        ptr1.getNext().setItem(t);
+                        swapped = 1;
+                    }
+                    ptr1 = ptr1.getNext();
+                }
+                lptr = ptr1;
+            }
+            while (swapped != 0);
+        }
+    }
+    /*
     public void sort(Comparator<T> comparator) {
         int i = 0;
         int j = 0;
+
         DequeNode<T> currentNode = this.first;
-        DequeNode<T> previous = currentNode;
         DequeNode<T> next =  currentNode;
         DequeNode<T> temp = currentNode;
         int comparationValue=0;
 
         for(i=0; i<this.size(); i++)
         {
-            for(j=0; j<this.size()-1; i++)
+            for(j=0; j<this.size()-1; j++)
             {
                 comparationValue = comparator.compare(currentNode.getItem(), currentNode.getNext().getItem());
+
+                temp = currentNode;
                 if(comparationValue>0)
                 {
                     next = currentNode.getNext();
-
-                    temp = currentNode;
                     currentNode.setNext(next.getNext());
                     currentNode.setPrevious(next);
                     next.setPrevious(temp.getPrevious());
@@ -175,10 +206,11 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
                     }else if(next.isLastNode()) {
                         this.last = currentNode;
                     }
-
                 }
-                currentNode = currentNode.getNext();
+                currentNode = temp.getNext();
             }
         }
     }
+
+     */
 }
