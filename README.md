@@ -1,16 +1,3 @@
-# Cobertura de código DequeNode
-<<<<<<< Updated upstream
-![](/src/main/resources/coverageDeque.png)
-
-# Tests de código DequeNode
-![](/src/main/resources/testsDeque.png)
-
-# Cobertura de código DoubleLinkedListQueue
-![](/src/main/resources/coverageList.png)
-
-# Tests de código DoubleLinkedListQueue
-![](/src/main/resources/testsList.png)
-=======
 ![](coverageDeque.png)
 
 # Tests de código DequeNode
