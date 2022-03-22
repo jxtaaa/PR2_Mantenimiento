@@ -92,12 +92,30 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
     }
 
     @Override
-    public DequeNode<T> getAt(int position) {
-        return null;
+    public DequeNode<T> getAt(int position) { //Initial position = 0
+        if(position < this.size() && position >= 0){
+            var current = this.peekFirst();
+            int pos = 0;
+            while(pos < position && current.getNext() != null){
+                current = current.getNext();
+                pos++;
+            }
+            return current;
+        } else{
+            throw new RuntimeException("Invalid position.");
+        }
     }
 
     @Override
     public DequeNode<T> find(T item) {
+        var current = first;
+        while(current != null){
+            if(current.getItem().equals(item)){
+                return current;
+            } else {
+                current = current.getNext();
+            }
+        }
         return null;
     }
 

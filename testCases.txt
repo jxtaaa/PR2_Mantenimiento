@@ -53,4 +53,9 @@ lista.peekFirst() elevará una RuntimeException
 lista.peekLast() elevará una RuntimeException
 lista.append(nodo) en lista, lista.peekFirst() será lista.first
 lista.append(nodo) en lista, lista.peekLast() será lista.last
-
+append(nodo1), append(nodo2), append(nodo3) en lista, lista.getAt(2) dará el nodo1
+lista.getAt(-1) elevará una RuntimeException
+Rellenando la lista con 9 nodos, lista.getAt(9) será igual a lista.last
+Rellenando la lista con 9 nodos, list.find(9) será igual a lista.last
+Rellenando la lista con 9 nodos, hacer list.find(45) devolverá NULL.
+En una lista vacía, hacer list.find(1) devolverá NULL.

@@ -173,5 +173,59 @@ class DoubleLinkedListQueueTest {
         assertEquals(list.peekLast(), node);
     }
 
+    @Test
+    public void getAtWithValidPositionShouldReturnElementAtPosition(){
+        var node = new DequeNode<>(2,null,null);
+        var node1 = new DequeNode<>(3,null,null);
+        var node2= new DequeNode<>(4,null,null);
+
+        list.append(node);
+        list.append(node1);
+        list.append(node2);
+
+        assertEquals(list.getAt(2), node);
+    }
+
+    @Test
+    public void getAtWithInvalidPositionOrEmptyListShouldThrowRuntimeException(){
+        assertThrows(RuntimeException.class, () -> list.getAt(-1));
+    }
+
+
+    @Test
+    public void getAtWithLatestPositionShouldReturnLastNode(){
+        for(int i = 0; i < 10; i ++){
+            DequeNode<Integer> n = new DequeNode<>(i,null,null);
+            list.appendLeft(n);
+        }
+
+        assertEquals(list.getAt(9),list.peekLast());
+    }
+
+    @Test
+    public void findAnElementThatBelongsToListReturnsThatElement(){
+        for(int i = 0; i < 10; i ++){
+            DequeNode<Integer> n = new DequeNode<>(i,null,null);
+            list.appendLeft(n);
+        }
+
+        assertEquals(list.find(9),list.peekLast());
+    }
+
+    @Test
+    public void findAnElementThatDoesNotBelongToListReturnsNull(){
+        for(int i = 0; i < 10; i ++){
+            DequeNode<Integer> n = new DequeNode<>(i,null,null);
+            list.appendLeft(n);
+        }
+
+        assertNull(list.find(45));
+    }
+
+    @Test
+    public void findAnElementOnAListThatIsEmptyReturnsNull(){
+        assertNull(list.find(1));
+    }
+
     
 }
