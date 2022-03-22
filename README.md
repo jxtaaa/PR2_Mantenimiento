@@ -1,4 +1,5 @@
 # Cobertura de código DequeNode
+<<<<<<< Updated upstream
 ![](/src/main/resources/coverageDeque.png)
 
 # Tests de código DequeNode
@@ -9,6 +10,18 @@
 
 # Tests de código DoubleLinkedListQueue
 ![](/src/main/resources/testsList.png)
+=======
+![](coverageDeque.png)
+
+# Tests de código DequeNode
+![](testsDeque.png)
+
+# Cobertura de código DoubleLinkedListQueue
+![](coverageList.png)
+
+# Tests de código DoubleLinkedListQueue
+![](testsList.png)
+>>>>>>> Stashed changes
 
 
 # Fichero testCases

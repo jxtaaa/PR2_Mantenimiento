@@ -119,7 +119,6 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         return null;
     }
 
-    // 1 --> 2 --> 3 --> 4 --> 5
     @Override
     public void delete(DequeNode<T> node) {
         DequeNode<T> actual = first;
@@ -176,41 +175,4 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
             while (swapped != 0);
         }
     }
-    /*
-    public void sort(Comparator<T> comparator) {
-        int i = 0;
-        int j = 0;
-
-        DequeNode<T> currentNode = this.first;
-        DequeNode<T> next =  currentNode;
-        DequeNode<T> temp = currentNode;
-        int comparationValue=0;
-
-        for(i=0; i<this.size(); i++)
-        {
-            for(j=0; j<this.size()-1; j++)
-            {
-                comparationValue = comparator.compare(currentNode.getItem(), currentNode.getNext().getItem());
-
-                temp = currentNode;
-                if(comparationValue>0)
-                {
-                    next = currentNode.getNext();
-                    currentNode.setNext(next.getNext());
-                    currentNode.setPrevious(next);
-                    next.setPrevious(temp.getPrevious());
-                    next.setNext(currentNode);
-
-                    if(currentNode.isFirstNode()){
-                        this.first = next;
-                    }else if(next.isLastNode()) {
-                        this.last = currentNode;
-                    }
-                }
-                currentNode = temp.getNext();
-            }
-        }
-    }
-
-     */
 }
