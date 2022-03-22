@@ -49,7 +49,7 @@ class DoubleLinkedListQueueTest {
         assertNull(list.find(2));
     }
     @Test
-    public void Delete4OnList13452DeleteNode2(){
+    public void Delete4OnList13452DeleteNode4(){
         var node = new DequeNode<>(2,null,null);
         var node1 = new DequeNode<>(5,null,null);
         var node2 = new DequeNode<>(4,null,null);
