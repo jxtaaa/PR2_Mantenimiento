@@ -10,6 +10,9 @@
 # Tests de código DoubleLinkedListQueue
 ![](testsList.png)
 
+# Calificación de SonarQube
+![](sonarQube.png)
+
 # Fichero testCases
 ```plaintext
 NODEQUEUE
