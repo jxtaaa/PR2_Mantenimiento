@@ -13,6 +13,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
             var oldFirst = first;
             first = node;
             first.setNext(oldFirst);
+            assert oldFirst != null;
             oldFirst.setPrevious(first);
         }
     }
@@ -44,6 +45,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
             first = null;
             last = null;
         } else {
+            assert first != null;
             first = first.getNext();
             first.setPrevious(null);
         }
@@ -147,7 +149,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
     @Override
     public void sort(Comparator<T> comparator)
     {
-        int swapped, i;
+        int swapped;
         int comparationValue;
         DequeNode<T> ptr1;
         DequeNode<T> lptr = null;
